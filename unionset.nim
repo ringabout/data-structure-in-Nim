@@ -40,16 +40,14 @@ proc `$`(w: WeightedUnionSet): string =
 
 
 when isMainModule:
-  var w = newWeightedUnionSet[10]()
-  w.union(4, 3)
-  w.union(3, 8)
-  w.union(6, 5)
-  w.union(9, 4)
-  w.union(2, 1)
-  w.union(8, 9)
-  w.union(5, 0)
-  w.union(7, 2)
-  w.union(6, 1)
-  w.union(1, 0)
+  var w = newWeightedUnionSet[8]()
+  echo w.count
+  w.union(0, 1)
+  w.union(2, 3)
+  w.union(4, 5)
   w.union(6, 7)
+  w.union(0, 2)
+  w.union(4, 6)
+  w.union(0, 4)
   echo w
+  echo w.count

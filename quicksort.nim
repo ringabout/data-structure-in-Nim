@@ -6,7 +6,8 @@ proc quicksort(list: var seq[int], lo: int, hi: int) =
     if lo >= hi:
       return 
     # 选取分位点
-    let pivot = rand(lo..hi)
+    # let pivot = rand(lo..hi)
+    let pivot = lo
     var
       i = lo + 1
       j = hi
@@ -53,7 +54,7 @@ when isMainModule:
   import algorithm, sequtils, timeit
   randomize()
   # var a0 = newSeqWith(10000, rand(100000))
-  var a0 = toSeq(1 .. 10000000)
+  var a0 = toSeq(1 .. 1000000)
   a0.shuffle
   echo a0[1 .. 4]
   var a1 = a0
