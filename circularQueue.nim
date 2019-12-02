@@ -55,16 +55,12 @@ proc len*(q: CircularQueue): int {.inline.} =
 var c = newCircularQueue[10, int]()
 for i in 1 .. 10:
   c.enQueue(i)
-  echo c
 for i in 1 .. 10:
   discard c.deQueue
-  echo c
 for i in 1 .. 10:
   c.enQueue(i)
-  echo c
 for i in 1 .. 8:
   discard c.deQueue
-  echo c
 
 echo c.peekQueue
 echo c.deQueue
