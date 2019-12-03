@@ -11,8 +11,6 @@ proc countingSort*[T](x: seq[T]): seq[T] =
   for i in 1 .. smax:
     aid[i] += aid[i-1]
 
-
-
   for i in countdown(x.high, 0, 1):
     result[aid[x[i]]] = x[i]
     aid[x[i]] -= 1
