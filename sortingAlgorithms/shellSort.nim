@@ -1,3 +1,5 @@
+import std/[random, sequtils, algorithm]
+
 # three
 proc shellSort*[T](x: var openArray[T]) =
   let length = len(x)
@@ -15,13 +17,8 @@ proc shellSort*[T](x: var openArray[T]) =
           break
     size = size div 3
 
-
-
-import random, sequtils, algorithm
-
-
-
-randomize()
-var x = newSeqWith(1000, rand(0 .. 100000000))
-shellSort(x)
-echo isSorted(x)
+when isMainModule:
+  randomize()
+  var x = newSeqWith(1000, rand(0 .. 100000000))
+  shellSort(x)
+  echo isSorted(x)
