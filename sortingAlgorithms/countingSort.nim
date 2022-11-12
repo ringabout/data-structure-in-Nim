@@ -1,7 +1,7 @@
 proc countingSort*[T](x: seq[T]): seq[T] =
   let
     length = x.len
-    smax = max(x) 
+    smax = max(x)
   var aid = newSeq[T](smax + 1)
   result = newSeq[T](length)
   for i in 0 ..< length:

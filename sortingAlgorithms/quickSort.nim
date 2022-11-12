@@ -2,35 +2,33 @@ import random
 
 
 proc quicksort(list: var seq[int], lo: int, hi: int) =
-    # 基准条件
-    if lo >= hi:
-      return 
-    # 选取分位点
-    # let pivot = rand(lo..hi)
-    let pivot = lo
-    var
-      i = lo + 1
-      j = hi
-    swap(list[lo], list[pivot])
-    var running = true
-    while running:
-      while list[i] <= list[lo] and i < hi:
-        i += 1
-      while list[j] >= list[lo] and j > lo:
-        j -= 1
-      if i < j:
-        swap(list[i], list[j])
-      else:
-        running = false
-    swap(list[lo], list[j])
-    # 递归求解子问题
-    quicksort(list, lo, j - 1)
-    quicksort(list, j + 1, hi)
+  # Termination condition
+  if lo >= hi:
+    return 
+  # Pivot selection
+  # let pivot = rand(lo..hi)
+  let pivot = lo
+  var
+    i = lo + 1
+    j = hi
+  swap(list[lo], list[pivot])
+  var running = true
+  while running:
+    while list[i] <= list[lo] and i < hi:
+      i += 1
+    while list[j] >= list[lo] and j > lo:
+      j -= 1
+    if i < j:
+      swap(list[i], list[j])
+    else:
+      running = false
+  swap(list[lo], list[j])
+  # Solving subproblems recursively
+  quicksort(list, lo, j - 1)
+  quicksort(list, j + 1, hi)
 
 
-
-
-proc quicksort*(list: var seq[int]) = 
+proc quicksort*(list: var seq[int]) =
   quicksort(list, 0, list.high)
 
 proc QuickSort(list: seq[int]): seq[int] =
@@ -39,7 +37,7 @@ proc QuickSort(list: seq[int]): seq[int] =
   var pivot = list[0]
   var left: seq[int] = @[]
   var right: seq[int] = @[]
-  for i in low(list)..high(list):
+  for i in low(list) .. high(list):
       if list[i] < pivot:
           left.add(list[i])
       elif list[i] > pivot:
@@ -48,10 +46,8 @@ proc QuickSort(list: seq[int]): seq[int] =
     pivot &
     QuickSort(right)
 
-
-
 when isMainModule:
-  import algorithm, sequtils, timeit
+  import algorithm, sequtils, timeIt
   randomize()
   # var a0 = newSeqWith(10000, rand(100000))
   var a0 = toSeq(1 .. 1000000)
