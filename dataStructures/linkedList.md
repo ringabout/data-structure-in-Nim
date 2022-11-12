@@ -15,7 +15,6 @@ First a single node is created, each node holds the current information and the 
 
 value is the information about the current element, and next is the next node.
 
-# WeChat Public Nim Programming
 ```nim
 type
   SinglyNodeObj*[T] = object
@@ -163,4 +162,3 @@ when isMainModule:
   echo a
 # output 87->9->17->99->12->8->17->tail
 ```
-Welcome to the # WeChat public website Nim Programming
